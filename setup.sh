@@ -15,7 +15,7 @@ sudo apt-get update
 sudo apt-get install -y zsh git curl btop bat fzf ripgrep unzip make gcc locales-all cmatrix
 
 if [ -f /usr/bin/batcat ]; then
-    sudo ln -sf /usr/bin/batcat /usr/local/bin/bat
+    sudo ln -sf /usr/bin/batcat /usr/local/bin/bat
 fi
 
 # 3. Install Fastfetch
@@ -32,9 +32,9 @@ curl -fsSL https://tailscale.com/install.sh | sh
 # 5. Install Oh My Zsh
 echo "Installing Oh My Zsh..."
 if [ ! -d "$ZSH" ]; then
-    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
 else
-    echo "Oh My Zsh is already installed, skipping cleanly..."
+    echo "Oh My Zsh is already installed, skipping cleanly..."
 fi
 
 # 6. Download Visual Plugins
@@ -43,10 +43,10 @@ ZSH_CUSTOM_DIR="$ZSH/custom/plugins"
 mkdir -p "$ZSH_CUSTOM_DIR"
 
 if [ ! -d "$ZSH_CUSTOM_DIR/zsh-syntax-highlighting" ]; then
-    git clone https://github.com/zsh-users/zsh-syntax-highlighting.git "$ZSH_CUSTOM_DIR/zsh-syntax-highlighting"
+    git clone https://github.com/zsh-users/zsh-syntax-highlighting.git "$ZSH_CUSTOM_DIR/zsh-syntax-highlighting"
 fi
 if [ ! -d "$ZSH_CUSTOM_DIR/zsh-autosuggestions" ]; then
-    git clone https://github.com/zsh-users/zsh-autosuggestions "$ZSH_CUSTOM_DIR/zsh-autosuggestions"
+    git clone https://github.com/zsh-users/zsh-autosuggestions "$ZSH_CUSTOM_DIR/zsh-autosuggestions"
 fi
 
 # 7. Write the .zshrc file
@@ -100,18 +100,18 @@ vim.opt.timeoutlen = 300
 -- Bootstrap lazy.nvim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
-  vim.fn.system({"git", "clone", "--filter=blob:none", "https://github.com/folke/lazy.nvim.git", "--branch=stable", lazypath})
+  vim.fn.system({"git", "clone", "--filter=blob:none", "https://github.com/folke/lazy.nvim.git", "--branch=stable", lazypath})
 end
 vim.opt.rtp:prepend(lazypath)
 
 -- Load Plugins
 require("lazy").setup({
-  { "nyoom-engineering/oxocarbon.nvim" },
-  { "nvim-telescope/telescope.nvim", branch = "0.1.x", dependencies = { "nvim-lua/plenary.nvim" } },
-  { "folke/which-key.nvim", event = "VeryLazy" },
-  { "numToStr/Comment.nvim", config = true },
-  { "akinsho/bufferline.nvim", dependencies = "nvim-tree/nvim-web-devicons" },
-  { "nvim-neo-tree/neo-tree.nvim", branch = "v3.x", dependencies = { "nvim-lua/plenary.nvim", "nvim-tree/nvim-web-devicons", "MunifTanjim/nui.nvim" } }
+  { "nyoom-engineering/oxocarbon.nvim" },
+  { "nvim-telescope/telescope.nvim", branch = "0.1.x", dependencies = { "nvim-lua/plenary.nvim" } },
+  { "folke/which-key.nvim", event = "VeryLazy" },
+  { "numToStr/Comment.nvim", config = true },
+  { "akinsho/bufferline.nvim", dependencies = "nvim-tree/nvim-web-devicons" },
+  { "nvim-neo-tree/neo-tree.nvim", branch = "v3.x", dependencies = { "nvim-lua/plenary.nvim", "nvim-tree/nvim-web-devicons", "MunifTanjim/nui.nvim" } }
 })
 
 -- Apply Oxocarbon Theme
